@@ -1,6 +1,5 @@
 package com.id.latihan.latihanspring.payload.request;
 
-import lombok.NonNull;
 
 import javax.validation.constraints.NotBlank;
 
