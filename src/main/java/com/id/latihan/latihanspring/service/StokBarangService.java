@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -24,6 +25,16 @@ public class StokBarangService implements Serializable {
 
     public  StokBarang updateStokBarang (StokBarang stokBarang){
         StokBarang stokBarang1 = stokBarangRepository.findById(stokBarang.getStok_id()).orElse(null);
+        //kurang stok_dtl_id
+        stokBarang1.setStok_name(stokBarang.getStok_name());
+        stokBarang1.setStok_desc(stokBarang.getStok_desc());
+        stokBarang1.setStok_type(stokBarang.getStok_type());
+        stokBarang1.setJumlah_stok(stokBarang.getJumlah_stok());
+        stokBarang1.setStok_price(stokBarang.getStok_price());
+        stokBarang1.setCreated_by(stokBarang.getCreated_by());
+        stokBarang1.setCreated_on(new Date());
+        stokBarang1.setUpdate_by(stokBarang.getUpdate_by());
+        stokBarang1.setCreated_on(stokBarang.getUpdate_on());
         return stokBarangRepository.save(stokBarang1);
     }
 

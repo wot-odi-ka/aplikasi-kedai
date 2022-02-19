@@ -20,6 +20,10 @@ public class CostumerService implements Serializable {
 
     public Costumer updateDataCostumer(Costumer costumer){
         Costumer costumer1 = costumerRepository.findById(costumer.getCostumer_id()).orElse(null);
+        costumer1.setCostumer_name(costumer.getCostumer_name());
+        costumer1.setJenis_kelamin(costumer.getJenis_kelamin());
+        costumer1.setNo_handphone(costumer.getNo_handphone());
+        costumer1.setSocial_media(costumer.getSocial_media());
         return costumerRepository.save(costumer1);
     }
 

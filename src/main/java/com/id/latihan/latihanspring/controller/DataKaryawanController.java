@@ -1,21 +1,25 @@
 package com.id.latihan.latihanspring.controller;
 
 import com.id.latihan.latihanspring.model.aplikasiKasir.DataKaryawan;
+import com.id.latihan.latihanspring.payload.response.MessageResponse;
 import com.id.latihan.latihanspring.service.DataKaryawanService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@RequestMapping("/api/dataKaryawan")
 public class DataKaryawanController {
 
     @Autowired
     private DataKaryawanService dataKaryawanService;
 
     @PostMapping("/addDataKaryawan")
-    public DataKaryawan addDataKaryawan(@RequestBody DataKaryawan dataKaryawan){
-        return dataKaryawanService.saveDataKaryawan(dataKaryawan);
+    public ResponseEntity<MessageResponse> addDataKaryawan(@RequestBody DataKaryawan dataKaryawan){
+         dataKaryawanService.saveDataKaryawan(dataKaryawan);
+        return ResponseEntity.ok(new MessageResponse("success insert to database"));
     }
 
     @GetMapping("/dataKaryawan/{karyawan_id}")
@@ -23,9 +27,10 @@ public class DataKaryawanController {
     return dataKaryawanService.getDataKaryawanById(karyawan_id);
     }
 
-    @DeleteMapping("/deleteDataKaryawan")
-    public String deleteDataKaryawanById(@PathVariable Long karyawan_id){
-        return dataKaryawanService.deleteDataKaryawan(karyawan_id);
+    @DeleteMapping("/deleteDataKaryawan/{karyawan_id}")
+    public ResponseEntity<MessageResponse> deleteDataKaryawanById(@PathVariable Long karyawan_id){
+        dataKaryawanService.deleteDataKaryawan(karyawan_id);
+        return ResponseEntity.ok(new MessageResponse("success delete data id" +karyawan_id));
     }
 
     @GetMapping("/getAllDataKaryawan")
@@ -34,7 +39,8 @@ public class DataKaryawanController {
     }
 
     @PutMapping("/updateDataKaryawan")
-    public DataKaryawan updateDataKaryawan(@RequestBody DataKaryawan dataKaryawan){
-        return dataKaryawanService.updateDataKaryawan(dataKaryawan);
+    public ResponseEntity<MessageResponse> updateDataKaryawan(@RequestBody DataKaryawan dataKaryawan){
+         dataKaryawanService.updateDataKaryawan(dataKaryawan);
+        return ResponseEntity.ok(new MessageResponse("success update data"));
     }
 }

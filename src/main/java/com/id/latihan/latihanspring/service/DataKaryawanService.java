@@ -24,7 +24,12 @@ public class DataKaryawanService implements Serializable {
 
     public DataKaryawan updateDataKaryawan(DataKaryawan dataKaryawan){
         DataKaryawan dataKaryawan1 = dataKaryawanRepository.findById(dataKaryawan.getKaryawan_id()).orElse(null);
-        //lanjut
+        dataKaryawan1.setName_karyawan(dataKaryawan.getName_karyawan());
+        dataKaryawan1.setGender(dataKaryawan.getGender());
+        dataKaryawan1.setAlamat(dataKaryawan.getAlamat());
+        dataKaryawan1.setNo_hp(dataKaryawan.getNo_hp());
+        dataKaryawan1.setStatus(dataKaryawan.getStatus());
+        dataKaryawan1.setPosition_karyawan(dataKaryawan.getPosition_karyawan());
         return dataKaryawanRepository.save(dataKaryawan1);
     }
 
