@@ -20,8 +20,6 @@ public class StokTypeDtl {
     @Column(length = 100)
     private String stok_name_dtl;
 
-    @Column(length = 100)
-    private String stok_harga_dtl;
 
     public Long getStok_type_dtl_id() {
         return stok_type_dtl_id;
@@ -39,11 +37,4 @@ public class StokTypeDtl {
         this.stok_name_dtl = stok_name_dtl;
     }
 
-    public String getStok_harga_dtl() {
-        return stok_harga_dtl;
-    }
-
-    public void setStok_harga_dtl(String stok_harga_dtl) {
-        this.stok_harga_dtl = stok_harga_dtl;
-    }
 }

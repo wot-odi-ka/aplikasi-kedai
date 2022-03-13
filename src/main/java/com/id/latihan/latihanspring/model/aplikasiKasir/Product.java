@@ -49,6 +49,17 @@ public class Product implements Serializable {
     @Column(length = 100)
     private String update_by;
 
+    @Column(length = 100)
+    private String imageProduct;
+
+    public String getImageProduct() {
+        return imageProduct;
+    }
+
+    public void setImageProduct(String imageProduct) {
+        this.imageProduct = imageProduct;
+    }
+
     public Long getProduct_id() {
         return product_id;
     }

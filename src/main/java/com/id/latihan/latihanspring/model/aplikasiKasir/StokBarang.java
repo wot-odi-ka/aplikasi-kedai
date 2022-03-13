@@ -48,6 +48,17 @@ public class StokBarang {
     @Column(length = 100)
     private String update_by;
 
+    @Column(length = 100)
+    private String imageStok;
+
+    public String getImageStok() {
+        return imageStok;
+    }
+
+    public void setImageStok(String imageStok) {
+        this.imageStok = imageStok;
+    }
+
     public Long getStok_id() {
         return stok_id;
     }

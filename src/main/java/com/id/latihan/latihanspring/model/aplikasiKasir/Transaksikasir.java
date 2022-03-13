@@ -46,6 +46,17 @@ public class Transaksikasir {
     @Column(length = 100)
     private String update_by;
 
+    @Column(length = 100)
+    private String image;
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
     public Long getTransaksi_id() {
         return transaksi_id;
     }

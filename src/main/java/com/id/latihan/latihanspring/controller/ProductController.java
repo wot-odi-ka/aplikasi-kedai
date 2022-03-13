@@ -1,12 +1,18 @@
 package com.id.latihan.latihanspring.controller;
 
+import com.id.latihan.latihanspring.common.util.FileUploadUtil;
 import com.id.latihan.latihanspring.model.aplikasiKasir.Product;
 import com.id.latihan.latihanspring.payload.response.MessageResponse;
 import com.id.latihan.latihanspring.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.view.RedirectView;
 
+import java.io.IOException;
 import java.util.List;
 
 @RestController
@@ -42,5 +48,19 @@ public class ProductController  {
          productService.updateProductById(product);
         return ResponseEntity.ok(new MessageResponse("success update to database"));
 
+    }
+    @PostMapping("/uploadImageProduct")
+    public ResponseEntity<MessageResponse>uploadImageProduct(Product product,@RequestParam("image") MultipartFile multipartFile) throws IOException {
+
+        String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
+        product.setImageProduct(fileName);
+
+        Product saveProduct = productService.updateProductById(product);
+
+        String uploadDir = "user-photos/" + saveProduct.getProduct_id();
+
+        FileUploadUtil.saveFile(uploadDir, fileName, multipartFile);
+
+        return ResponseEntity.ok(new MessageResponse("success upload images"));
     }
 }

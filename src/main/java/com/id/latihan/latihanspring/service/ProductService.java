@@ -35,6 +35,7 @@ public class ProductService {
         product1.setJumlah_product(product.getJumlah_product());
         product1.setProduct_price(product.getProduct_price());
         product1.setCreate_by(product.getCreate_by());
+        product1.setImageProduct(product.getImageProduct());
         product1.setCreate_on(new Date());
         product1.setUpdate_by(product.getUpdate_by());
         product1.setUpdate_on(new Date());

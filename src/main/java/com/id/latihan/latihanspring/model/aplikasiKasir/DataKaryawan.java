@@ -35,6 +35,16 @@ public class DataKaryawan {
     @Column(length = 13)
     private String no_hp;
 
+    @Column(length = 100)
+    private String imageProfil;
+
+    public String getImageProfil() {
+        return imageProfil;
+    }
+
+    public void setImageProfil(String imageProfil) {
+        this.imageProfil = imageProfil;
+    }
 
     public Long getKaryawan_id() {
         return karyawan_id;
