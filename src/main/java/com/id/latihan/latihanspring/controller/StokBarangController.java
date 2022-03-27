@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = "https://aplikasi-kedaii.herokuapp.com")
 @RestController
 @RequestMapping("/api/stokBarang")
 public class StokBarangController {

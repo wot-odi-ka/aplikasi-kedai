@@ -16,14 +16,17 @@ public class Transaksikasir {
     @Id
     private Long transaksi_id;
 
-    @Column(length = 100)
-    private int product_id;
+   @ManyToOne
+   @JoinColumn(name = "product_id")
+    private Product product_id;
 
-    @Column(length = 100)
-    private int karyawan_id;
+    @ManyToOne
+    @JoinColumn(name = "karyawan_id")
+    private DataKaryawan karyawan_id;
 
-    @Column(length = 100)
-    private int costumer_id;
+    @ManyToOne
+    @JoinColumn(name = "costumer_id")
+    private Costumer costumer_id;
 
     @Column(length = 100)
     private int jumlah_product;
@@ -65,27 +68,27 @@ public class Transaksikasir {
         this.transaksi_id = transaksi_id;
     }
 
-    public int getProduct_id() {
+    public Product getProduct_id() {
         return product_id;
     }
 
-    public void setProduct_id(int product_id) {
+    public void setProduct_id(Product product_id) {
         this.product_id = product_id;
     }
 
-    public int getKaryawan_id() {
+    public DataKaryawan getKaryawan_id() {
         return karyawan_id;
     }
 
-    public void setKaryawan_id(int karyawan_id) {
+    public void setKaryawan_id(DataKaryawan karyawan_id) {
         this.karyawan_id = karyawan_id;
     }
 
-    public int getCostumer_id() {
+    public Costumer getCostumer_id() {
         return costumer_id;
     }
 
-    public void setCostumer_id(int costumer_id) {
+    public void setCostumer_id(Costumer costumer_id) {
         this.costumer_id = costumer_id;
     }
 

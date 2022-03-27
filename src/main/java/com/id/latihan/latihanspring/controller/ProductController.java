@@ -15,6 +15,7 @@ import org.springframework.web.servlet.view.RedirectView;
 import java.io.IOException;
 import java.util.List;
 
+@CrossOrigin(origins = "https://aplikasi-kedaii.herokuapp.com")
 @RestController
 @RequestMapping("/api/product")
 public class ProductController  {

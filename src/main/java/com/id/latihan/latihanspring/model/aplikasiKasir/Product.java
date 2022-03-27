@@ -19,8 +19,9 @@ public class Product implements Serializable {
     @Id
     private Long product_id;
 
-    @Column(length = 20)
-    private Long stok_id;
+    @ManyToOne
+    @JoinColumn(name = "stok_id")
+    private StokBarang stok_id;
 
     @Column(length = 100)
     private String product_name;
@@ -68,11 +69,11 @@ public class Product implements Serializable {
         this.product_id = product_id;
     }
 
-    public Long getStok_id() {
+    public StokBarang getStok_id() {
         return stok_id;
     }
 
-    public void setStok_id(Long stok_id) {
+    public void setStok_id(StokBarang stok_id) {
         this.stok_id = stok_id;
     }
 

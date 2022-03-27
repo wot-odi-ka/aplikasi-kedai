@@ -18,8 +18,9 @@ public class StokBarang {
     @Id
     private Long stok_id;
 
-    @Column(length = 20)
-    private Long stok_type_dtl_id;
+    @ManyToOne
+    @JoinColumn(name = "stok_type_dtl_id")
+    private StokTypeDtl stok_type_dtl_id;
 
     @Column(length = 100)
     private String stok_name;
@@ -67,11 +68,11 @@ public class StokBarang {
         this.stok_id = stok_id;
     }
 
-    public Long getStok_type_dtl_id() {
+    public StokTypeDtl getStok_type_dtl_id() {
         return stok_type_dtl_id;
     }
 
-    public void setStok_type_dtl_id(Long stok_type_dtl_id) {
+    public void setStok_type_dtl_id(StokTypeDtl stok_type_dtl_id) {
         this.stok_type_dtl_id = stok_type_dtl_id;
     }
 

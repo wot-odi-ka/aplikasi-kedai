@@ -1,8 +1,22 @@
 package com.id.latihan.latihanspring.payload.response;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.id.latihan.latihanspring.constant.Constants;
+import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
+
+
+import java.time.LocalDateTime;
+import java.util.Date;
+
+@Data
 public class TokenRefreshResponse {
   private String accessToken;
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+  private Date accessTokenExpDate;
   private String refreshToken;
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+  private Date refreshTokenExpDate;
   private String tokenType = "Bearer";
 
   public TokenRefreshResponse(String accessToken, String refreshToken) {
@@ -34,4 +48,19 @@ public class TokenRefreshResponse {
     this.tokenType = tokenType;
   }
 
+    public Date getAccessTokenExpDate() {
+        return accessTokenExpDate;
+    }
+
+    public void setAccessTokenExpDate(Date accessTokenExpDate) {
+        this.accessTokenExpDate = accessTokenExpDate;
+    }
+
+    public Date getRefreshTokenExpDate() {
+        return refreshTokenExpDate;
+    }
+
+    public void setRefreshTokenExpDate(Date refreshTokenExpDate) {
+        this.refreshTokenExpDate = refreshTokenExpDate;
+    }
 }
