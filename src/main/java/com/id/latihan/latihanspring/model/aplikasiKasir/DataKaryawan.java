@@ -1,4 +1,5 @@
 package com.id.latihan.latihanspring.model.aplikasiKasir;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,7 +16,19 @@ import java.util.Date;
 public class DataKaryawan {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long karyawan_id;
+
+    @Column(length = 20)
+    private String kaaryawan_code;
+
+    public String getKaaryawan_code() {
+        return this.kaaryawan_code;
+    }
+
+    public void setKaaryawan_code(String kaaryawan_code) {
+        this.kaaryawan_code = kaaryawan_code;
+    }
 
     @Column(length = 100)
     private String name_karyawan;

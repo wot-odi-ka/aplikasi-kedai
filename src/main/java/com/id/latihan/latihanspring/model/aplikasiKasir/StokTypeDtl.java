@@ -15,11 +15,11 @@ import java.util.Date;
 public class StokTypeDtl {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long stok_type_dtl_id;
 
     @Column(length = 100)
     private String stok_name_dtl;
-
 
     public Long getStok_type_dtl_id() {
         return stok_type_dtl_id;

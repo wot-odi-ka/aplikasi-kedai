@@ -1,4 +1,5 @@
 package com.id.latihan.latihanspring.model.aplikasiKasir;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,10 +15,11 @@ import java.util.Date;
 public class Transaksikasir {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long transaksi_id;
 
-   @ManyToOne
-   @JoinColumn(name = "product_id")
+    @ManyToOne
+    @JoinColumn(name = "product_id")
     private Product product_id;
 
     @ManyToOne
@@ -27,6 +29,17 @@ public class Transaksikasir {
     @ManyToOne
     @JoinColumn(name = "costumer_id")
     private Costumer costumer_id;
+
+    @Column(length = 20)
+    private String transaksi_code;
+
+    public String getTransaksi_code() {
+        return this.transaksi_code;
+    }
+
+    public void setTransaksi_code(String transaksi_code) {
+        this.transaksi_code = transaksi_code;
+    }
 
     @Column(length = 100)
     private int jumlah_product;
@@ -147,4 +160,5 @@ public class Transaksikasir {
     public void setUpdate_by(String update_by) {
         this.update_by = update_by;
     }
+
 }

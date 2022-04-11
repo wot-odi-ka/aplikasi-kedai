@@ -16,11 +16,23 @@ import java.util.Date;
 public class StokBarang {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long stok_id;
 
     @ManyToOne
     @JoinColumn(name = "stok_type_dtl_id")
     private StokTypeDtl stok_type_dtl_id;
+
+    @Column(length = 20)
+    private String stok_code;
+
+    public String getStok_code() {
+        return this.stok_code;
+    }
+
+    public void setStok_code(String stok_code) {
+        this.stok_code = stok_code;
+    }
 
     @Column(length = 100)
     private String stok_name;

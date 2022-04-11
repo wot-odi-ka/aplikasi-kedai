@@ -1,4 +1,5 @@
 package com.id.latihan.latihanspring.model.aplikasiKasir;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,7 +15,19 @@ import java.util.Date;
 public class Costumer {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long costumer_id;
+
+    @Column(length = 20)
+    private String costumer_code;
+
+    public String getCostumer_code() {
+        return this.costumer_code;
+    }
+
+    public void setCostumer_code(String costumer_code) {
+        this.costumer_code = costumer_code;
+    }
 
     @Column(length = 100)
     private String costumer_name;
@@ -27,7 +40,6 @@ public class Costumer {
 
     @Column(length = 10)
     private String jenis_kelamin;
-
 
     public Long getCostumer_id() {
         return costumer_id;
@@ -68,4 +80,5 @@ public class Costumer {
     public void setJenis_kelamin(String jenis_kelamin) {
         this.jenis_kelamin = jenis_kelamin;
     }
+
 }

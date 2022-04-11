@@ -17,16 +17,28 @@ import java.util.Date;
 public class Product implements Serializable {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long product_id;
 
     @ManyToOne
     @JoinColumn(name = "stok_id")
     private StokBarang stok_id;
 
+    @Column(length = 20)
+    private String product_Code;
+
+    public String getProduct_Code() {
+        return this.product_Code;
+    }
+
+    public void setProduct_Code(String product_Code) {
+        this.product_Code = product_Code;
+    }
+
     @Column(length = 100)
     private String product_name;
 
-    @Column(length = 500 )
+    @Column(length = 500)
     private String product_desc;
 
     @Column(length = 50)
