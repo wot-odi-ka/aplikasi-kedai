@@ -65,6 +65,12 @@ public class Product implements Serializable {
     @Column(length = 100)
     private String imageProduct;
 
+    @Column(length = 100)
+    private String gram;
+
+    @Column(length = 100)
+    private String liter;
+
     public String getImageProduct() {
         return imageProduct;
     }

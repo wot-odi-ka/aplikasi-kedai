@@ -1,6 +1,5 @@
 package com.id.latihan.latihanspring.service;
 
-import com.id.latihan.latihanspring.model.User;
 import com.id.latihan.latihanspring.model.aplikasiKasir.Product;
 import com.id.latihan.latihanspring.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;

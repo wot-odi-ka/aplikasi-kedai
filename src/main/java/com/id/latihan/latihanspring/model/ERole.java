@@ -1,7 +1,7 @@
 package com.id.latihan.latihanspring.model;
 
 public enum ERole {
-  ROLE_USER,
-  ROLE_MODERATOR,
+  ROLE_HEADBAR,
+  ROLE_KASIR,
   ROLE_ADMIN
 }

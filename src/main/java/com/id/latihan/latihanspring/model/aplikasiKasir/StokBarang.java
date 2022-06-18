@@ -26,6 +26,28 @@ public class StokBarang {
     @Column(length = 20)
     private String stok_code;
 
+    @Column(length = 100)
+    private String gram;
+
+    public String getGram() {
+        return this.gram;
+    }
+
+    public void setGram(String gram) {
+        this.gram = gram;
+    }
+
+    @Column(length = 100)
+    private String liter;
+
+    public String getLiter() {
+        return this.liter;
+    }
+
+    public void setLiter(String liter) {
+        this.liter = liter;
+    }
+
     public String getStok_code() {
         return this.stok_code;
     }
