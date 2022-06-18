@@ -4,7 +4,6 @@ import com.id.latihan.latihanspring.model.aplikasiKasir.StokBarang;
 import com.id.latihan.latihanspring.payload.response.MessageResponse;
 import com.id.latihan.latihanspring.service.StokBarangService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,6 +26,7 @@ public class StokBarangController {
     @GetMapping("/getAllStokeBarang")
     public List<StokBarang> findAllStokBrang(){
         return stokBarangService.getAllStokBarang();
+        
     }
 
     @DeleteMapping("/deleteStokBrang/{stok_id}")
