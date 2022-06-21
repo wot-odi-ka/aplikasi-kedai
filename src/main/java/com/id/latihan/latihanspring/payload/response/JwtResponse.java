@@ -1,5 +1,6 @@
 package com.id.latihan.latihanspring.payload.response;
 
+import java.time.Instant;
 import java.util.List;
 
 public class JwtResponse {
@@ -9,15 +10,26 @@ public class JwtResponse {
 	private Long id;
 	private String username;
 	private String email;
+	private Instant refreshTokenExpDate;
 	private List<String> roles;
 
-	public JwtResponse(String accessToken, String refreshToken, Long id, String username, String email, List<String> roles) {
+	public JwtResponse(String accessToken, String refreshToken, Long id, String username, String email,Instant refreshTokenExpDate, List<String> roles) {
 		this.token = accessToken;
 		this.refreshToken = refreshToken;
 		this.id = id;
 		this.username = username;
 		this.email = email;
+		this.refreshTokenExpDate = refreshTokenExpDate;
 		this.roles = roles;
+	}
+
+
+	public Instant getRefreshTokenExpDate() {
+		return this.refreshTokenExpDate;
+	}
+
+	public void setRefreshTokenExpDate(Instant refreshTokenExpDate) {
+		this.refreshTokenExpDate = refreshTokenExpDate;
 	}
 
 	public String getAccessToken() {

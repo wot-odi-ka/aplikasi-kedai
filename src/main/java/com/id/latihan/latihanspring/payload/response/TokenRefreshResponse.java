@@ -1,24 +1,28 @@
 package com.id.latihan.latihanspring.payload.response;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
-
-import java.util.Date;
+import java.time.Instant;
 
 @Data
 public class TokenRefreshResponse {
   private String accessToken;
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
-  private Date accessTokenExpDate;
   private String refreshToken;
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
-  private Date refreshTokenExpDate;
+  private Instant refreshTokenExpDate;
   private String tokenType = "Bearer";
 
-  public TokenRefreshResponse(String accessToken, String refreshToken) {
+  public TokenRefreshResponse(String accessToken, String refreshToken,Instant refreshTokenExpDate) {
     this.accessToken = accessToken;
     this.refreshToken = refreshToken;
+    this.refreshTokenExpDate = refreshTokenExpDate;
+  }
+
+  public Instant getRefreshTokenExpDate() {
+    return this.refreshTokenExpDate;
+  }
+
+  public void setRefreshTokenExpDate(Instant refreshTokenExpDate) {
+    this.refreshTokenExpDate = refreshTokenExpDate;
   }
 
   public String getAccessToken() {
@@ -45,19 +49,4 @@ public class TokenRefreshResponse {
     this.tokenType = tokenType;
   }
 
-    public Date getAccessTokenExpDate() {
-        return accessTokenExpDate;
-    }
-
-    public void setAccessTokenExpDate(Date accessTokenExpDate) {
-        this.accessTokenExpDate = accessTokenExpDate;
-    }
-
-    public Date getRefreshTokenExpDate() {
-        return refreshTokenExpDate;
-    }
-
-    public void setRefreshTokenExpDate(Date refreshTokenExpDate) {
-        this.refreshTokenExpDate = refreshTokenExpDate;
-    }
 }

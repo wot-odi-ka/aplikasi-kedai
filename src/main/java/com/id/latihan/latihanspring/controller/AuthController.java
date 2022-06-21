@@ -27,8 +27,10 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+
 import java.util.HashSet;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -72,7 +74,7 @@ public class AuthController {
     RefreshToken refreshToken = refreshTokenService.createRefreshToken(userDetails.getId());
 
     return ResponseEntity.ok(new JwtResponse(jwt, refreshToken.getToken(), userDetails.getId(),
-        userDetails.getUsername(), userDetails.getEmail(), roles));
+        userDetails.getUsername(), userDetails.getEmail(), refreshToken.getExpiryDate(), roles));
   }
 
   @PostMapping("/signup")
@@ -130,13 +132,14 @@ public class AuthController {
   @PostMapping("/refreshtoken")
   public ResponseEntity<?> refreshtoken(@Valid @RequestBody TokenRefreshRequest request) {
     String requestRefreshToken = request.getRefreshToken();
-
+  
+     Optional<RefreshToken> refreshToken =  refreshTokenService.findByToken(requestRefreshToken);
     return refreshTokenService.findByToken(requestRefreshToken)
         .map(refreshTokenService::verifyExpiration)
         .map(RefreshToken::getUser)
         .map(user -> {
           String token = jwtUtils.generateTokenFromUsername(((User) user).getUsername());
-          return ResponseEntity.ok(new TokenRefreshResponse(token, requestRefreshToken));
+          return ResponseEntity.ok(new TokenRefreshResponse(token, requestRefreshToken, refreshToken.get().getExpiryDate()));
         })
         .orElseThrow(() -> new TokenRefreshException(requestRefreshToken,
             "Refresh token is not in database!"));
