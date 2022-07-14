@@ -18,7 +18,18 @@ public class TransaksiService implements Serializable  {
 
 
     public Transaksikasir saveData(Transaksikasir transaksikasir){
-
+        // Transaksikasir tr = new Transaksikasir();
+        // tr.setCostumer_id(transaksikasir.getCostumer_id());
+        // tr.setKaryawan_id(transaksikasir.getKaryawan_id());
+        // tr.setProduct_id(transaksikasir.getProduct_id());
+        // tr.setJenis_product(transaksikasir.getJenis_product());
+        // tr.setHarga_product(transaksikasir.getHarga_product());
+        // tr.setJumlah_product(transaksikasir.getJumlah_product());
+        // tr.setTransaksi_code(transaksikasir.getTransaksi_code());
+        int total = transaksikasir.getJumlah_product() * transaksikasir.getHarga_product();
+        transaksikasir.setTotal(total);
+        // tr.setCreate_by(transaksikasir.getCreate_by());
+        // tr.setCreate_on(transaksikasir.getCreate_on());
         return repository.save(transaksikasir);
     }
 

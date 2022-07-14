@@ -46,4 +46,9 @@ public class StokBarangController {
         return stokBarangService.stokBarangById(stok_id);
     }
 
+    @GetMapping("/stockBarang/all")
+    public List<StokBarang> getAll(){
+        return stokBarangService.getAllStock();
+    }
+
 }

@@ -46,4 +46,8 @@ public class StokBarangService implements Serializable {
     public List<StokBarang> getAllStokBarang(){
         return stokBarangRepository.findAll();
     }
+
+    public List<StokBarang> getAllStock(){
+        return stokBarangRepository.getDataStock();
+    }
 }

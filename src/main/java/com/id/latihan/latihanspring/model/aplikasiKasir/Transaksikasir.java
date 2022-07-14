@@ -5,7 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.time.Instant;
+
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -33,14 +34,6 @@ public class Transaksikasir {
     @Column(length = 20)
     private String transaksi_code;
 
-    public String getTransaksi_code() {
-        return this.transaksi_code;
-    }
-
-    public void setTransaksi_code(String transaksi_code) {
-        this.transaksi_code = transaksi_code;
-    }
-
     @Column(length = 100)
     private int jumlah_product;
 
@@ -51,19 +44,56 @@ public class Transaksikasir {
     private String jenis_product;
 
     @Column(length = 50)
-    private Date create_on;
+    private Instant create_on;
+
+	public Instant getCreate_on() {
+		return this.create_on;
+	}
+
+	public void setCreate_on(Instant create_on) {
+		this.create_on = create_on;
+	}
+
 
     @Column(length = 100)
     private String create_by;
 
     @Column(length = 50)
-    private Date update_on;
+    private Instant update_on;
+
+    public Instant getUpdate_on() {
+        return this.update_on;
+    }
+
+    public void setUpdate_on(Instant update_on) {
+        this.update_on = update_on;
+    }
 
     @Column(length = 100)
     private String update_by;
 
     @Column(length = 100)
     private String image;
+
+    @Column(length = 100)
+    private int total;
+
+    public int getTotal() {
+        return this.total;
+    }
+
+    public void setTotal(int total) {
+        this.total = total;
+    }
+
+    public String getTransaksi_code() {
+        return this.transaksi_code;
+    }
+
+    public void setTransaksi_code(String transaksi_code) {
+        this.transaksi_code = transaksi_code;
+    }
+
 
     public String getImage() {
         return image;
@@ -129,28 +159,12 @@ public class Transaksikasir {
         this.jenis_product = jenis_product;
     }
 
-    public Date getCreate_on() {
-        return create_on;
-    }
-
-    public void setCreate_on(Date create_on) {
-        this.create_on = create_on;
-    }
-
     public String getCreate_by() {
         return create_by;
     }
 
     public void setCreate_by(String create_by) {
         this.create_by = create_by;
-    }
-
-    public Date getUpdate_on() {
-        return update_on;
-    }
-
-    public void setUpdate_on(Date update_on) {
-        this.update_on = update_on;
     }
 
     public String getUpdate_by() {

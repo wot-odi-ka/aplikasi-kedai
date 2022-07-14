@@ -5,12 +5,10 @@ import com.id.latihan.latihanspring.model.aplikasiKasir.Product;
 import com.id.latihan.latihanspring.payload.response.MessageResponse;
 import com.id.latihan.latihanspring.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.view.RedirectView;
 
 import java.io.IOException;
 import java.util.List;
