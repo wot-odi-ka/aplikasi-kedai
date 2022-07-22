@@ -61,5 +61,13 @@ public class ProductController  {
         FileUploadUtil.saveFile(uploadDir, fileName, multipartFile);
 
         return ResponseEntity.ok(new MessageResponse("success upload images"));
+
+       
+    }
+    @GetMapping("getAll")
+    public List<Product> getAllDList() {
+
+        return productService.getAllData();
+        
     }
 }
