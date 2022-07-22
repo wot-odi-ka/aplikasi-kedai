@@ -5,7 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.Date;
+
+import java.time.Instant;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -72,13 +73,29 @@ public class StokBarang {
     private Long jumlah_stok;
 
     @Column(length = 50)
-    private Date created_on;
+    private Instant created_on;
+
+    public Instant getCreated_on() {
+        return this.created_on;
+    }
+
+    public void setCreated_on(Instant created_on) {
+        this.created_on = created_on;
+    }
 
     @Column(length = 100)
     private String created_by;
 
     @Column(length = 50)
-    private Date update_on;
+    private Instant update_on;
+
+    public Instant getUpdate_on() {
+        return this.update_on;
+    }
+
+    public void setUpdate_on(Instant update_on) {
+        this.update_on = update_on;
+    }
 
     @Column(length = 100)
     private String update_by;
@@ -150,13 +167,6 @@ public class StokBarang {
         this.jumlah_stok = jumlah_stok;
     }
 
-    public Date getCreated_on() {
-        return created_on;
-    }
-
-    public void setCreated_on(Date created_on) {
-        this.created_on = created_on;
-    }
 
     public String getCreated_by() {
         return created_by;
@@ -166,13 +176,6 @@ public class StokBarang {
         this.created_by = created_by;
     }
 
-    public Date getUpdate_on() {
-        return update_on;
-    }
-
-    public void setUpdate_on(Date update_on) {
-        this.update_on = update_on;
-    }
 
     public String getUpdate_by() {
         return update_by;

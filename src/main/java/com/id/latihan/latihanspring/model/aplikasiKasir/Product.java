@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Date;
+import java.time.Instant;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -51,13 +51,29 @@ public class Product implements Serializable {
     private long jumlah_product;
 
     @Column(length = 50)
-    private Date create_on;
+    private Instant create_on;
+
+    public Instant getCreate_on() {
+        return this.create_on;
+    }
+
+    public void setCreate_on(Instant create_on) {
+        this.create_on = create_on;
+    }
 
     @Column(length = 100)
     private String create_by;
 
     @Column(length = 50)
-    private Date update_on;
+    private Instant update_on;
+
+    public Instant getUpdate_on() {
+        return this.update_on;
+    }
+
+    public void setUpdate_on(Instant update_on) {
+        this.update_on = update_on;
+    }
 
     @Column(length = 100)
     private String update_by;
@@ -135,13 +151,6 @@ public class Product implements Serializable {
         this.jumlah_product = jumlah_product;
     }
 
-    public Date getCreate_on() {
-        return create_on;
-    }
-
-    public void setCreate_on(Date create_on) {
-        this.create_on = create_on;
-    }
 
     public String getCreate_by() {
         return create_by;
@@ -149,14 +158,6 @@ public class Product implements Serializable {
 
     public void setCreate_by(String create_by) {
         this.create_by = create_by;
-    }
-
-    public Date getUpdate_on() {
-        return update_on;
-    }
-
-    public void setUpdate_on(Date update_on) {
-        this.update_on = update_on;
     }
 
     public String getUpdate_by() {

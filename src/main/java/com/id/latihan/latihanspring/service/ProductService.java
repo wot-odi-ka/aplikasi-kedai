@@ -5,7 +5,6 @@ import com.id.latihan.latihanspring.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
 import java.util.List;
 
 @Service
@@ -35,9 +34,7 @@ public class ProductService {
         product1.setProduct_price(product.getProduct_price());
         product1.setCreate_by(product.getCreate_by());
         product1.setImageProduct(product.getImageProduct());
-        product1.setCreate_on(new Date());
         product1.setUpdate_by(product.getUpdate_by());
-        product1.setUpdate_on(new Date());
         return productRepository.save(product1);
     }
 

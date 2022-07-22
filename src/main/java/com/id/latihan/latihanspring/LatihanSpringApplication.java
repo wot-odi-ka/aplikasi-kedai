@@ -2,6 +2,9 @@ package com.id.latihan.latihanspring;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @SpringBootApplication
 public class LatihanSpringApplication {
@@ -10,4 +13,16 @@ public class LatihanSpringApplication {
         SpringApplication.run(LatihanSpringApplication.class, args);
 
     }
+ 
+   @Bean
+   public WebMvcConfigurer corsConfigurer() {
+       return new WebMvcConfigurer() {
+           @Override
+           public void addCorsMappings(CorsRegistry registry) {
+               registry.addMapping("/*").allowedOrigins("*");
+           }
+
+       };
+   }
+   
 }   
