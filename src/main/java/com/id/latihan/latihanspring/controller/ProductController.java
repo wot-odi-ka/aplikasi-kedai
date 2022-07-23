@@ -20,28 +20,33 @@ public class ProductController  {
     @Autowired
     private ProductService productService;
 
+    @CrossOrigin(origins = "https://aplikasi-kedaii.herokuapp.com")
     @PostMapping("/addProduct")
     public ResponseEntity<MessageResponse> addProduct(@RequestBody Product product){
          productService.productSave(product);
         return ResponseEntity.ok(new MessageResponse("success insert to databse"));
     }
 
+    @CrossOrigin(origins = "https://aplikasi-kedaii.herokuapp.com")
     @GetMapping("/product/{product_id}")
     public Product findByIdProduct (@PathVariable Long product_id){
         return productService.findByidProduct(product_id);
     }
 
+    @CrossOrigin(origins = "https://aplikasi-kedaii.herokuapp.com")
     @DeleteMapping("/product/{product_id}")
     public ResponseEntity<MessageResponse> delletByidProduct (@PathVariable Long product_id){
           productService.deletByIdProduct(product_id);
         return ResponseEntity.ok(new MessageResponse("success delete data id" + product_id));
     }
 
+    @CrossOrigin(origins = "https://aplikasi-kedaii.herokuapp.com")
     @GetMapping("/getAllProduct")
     public List<Product> findAllProduct(){
         return productService.getAllProduct();
     }
 
+    @CrossOrigin(origins = "https://aplikasi-kedaii.herokuapp.com")
     @PutMapping("/updateProduct")
     public ResponseEntity<MessageResponse> updateDataProduct(@RequestBody  Product product){
          productService.updateProductById(product);
