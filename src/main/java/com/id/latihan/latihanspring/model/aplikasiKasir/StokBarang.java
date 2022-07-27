@@ -30,32 +30,8 @@ public class StokBarang {
     @Column(length = 100)
     private String gram;
 
-    public String getGram() {
-        return this.gram;
-    }
-
-    public void setGram(String gram) {
-        this.gram = gram;
-    }
-
     @Column(length = 100)
     private String liter;
-
-    public String getLiter() {
-        return this.liter;
-    }
-
-    public void setLiter(String liter) {
-        this.liter = liter;
-    }
-
-    public String getStok_code() {
-        return this.stok_code;
-    }
-
-    public void setStok_code(String stok_code) {
-        this.stok_code = stok_code;
-    }
 
     @Column(length = 100)
     private String stok_name;
@@ -75,6 +51,42 @@ public class StokBarang {
     @Column(length = 50)
     private Instant created_on;
 
+    @Column(length = 100)
+    private String created_by;
+
+    @Column(length = 50)
+    private Instant update_on;
+    
+    @Column(length = 100)
+    private String update_by;
+
+    @Column(length = 100)
+    private String imageStok;
+
+    public String getLiter() {
+        return this.liter;
+    }
+
+    public void setLiter(String liter) {
+        this.liter = liter;
+    }
+
+    public String getStok_code() {
+        return this.stok_code;
+    }
+
+    public void setStok_code(String stok_code) {
+        this.stok_code = stok_code;
+    }
+
+    public String getGram() {
+        return this.gram;
+    }
+
+    public void setGram(String gram) {
+        this.gram = gram;
+    }
+
     public Instant getCreated_on() {
         return this.created_on;
     }
@@ -83,12 +95,6 @@ public class StokBarang {
         this.created_on = created_on;
     }
 
-    @Column(length = 100)
-    private String created_by;
-
-    @Column(length = 50)
-    private Instant update_on;
-
     public Instant getUpdate_on() {
         return this.update_on;
     }
@@ -96,12 +102,6 @@ public class StokBarang {
     public void setUpdate_on(Instant update_on) {
         this.update_on = update_on;
     }
-
-    @Column(length = 100)
-    private String update_by;
-
-    @Column(length = 100)
-    private String imageStok;
 
     public String getImageStok() {
         return imageStok;
